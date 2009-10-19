@@ -65,9 +65,10 @@ h3. Examples
 
 <pre>
  <code>
-  render_crumbs                     #=> <a href="/">Home</a> &raquo; <a href="/businesses">Businesses</a>
-  render_crumbs :seperator => ' | ' #=> <a href="/">Home</a> | <a href="/businesses">Businesses</a>
-  render_crumbs :format => :xml     #=> <crumb href="/">Home</crumb><crumb href="/businesses">Businesses</crumb>
+  render_crumbs                             #=> <a href="/">Home</a> &raquo; <a href="/businesses">Businesses</a>
+  render_crumbs :seperator => ' | '         #=> <a href="/">Home</a> | <a href="/businesses">Businesses</a>
+  render_crumbs :format => :xml             #=> <crumb href="/">Home</crumb><crumb href="/businesses">Businesses</crumb>
+  render_crumbs :last_item_is_link => false  #=> <a href="/">Home</a> &raquo; Businesses
  </code>
 </pre>
 A crumb with a nil link will just output plain text.

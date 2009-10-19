@@ -76,9 +76,10 @@ module Crummy
     #   :link => boolean        
     # 
     #   Examples:
-    #   render_crumbs                     #=> <a href="/">Home</a> &raquo; <a href="/businesses">Businesses</a>
-    #   render_crumbs :seperator => ' | ' #=> <a href="/">Home</a> | <a href="/businesses">Businesses</a>
-    #   render_crumbs :format => :xml     #=> <crumb href="/">Home</crumb><crumb href="/businesses">Businesses</crumb>
+    #   render_crumbs                             #=> <a href="/">Home</a> &raquo; <a href="/businesses">Businesses</a>
+    #   render_crumbs :seperator => ' | '         #=> <a href="/">Home</a> | <a href="/businesses">Businesses</a>
+    #   render_crumbs :format => :xml             #=> <crumb href="/">Home</crumb><crumb href="/businesses">Businesses</crumb>
+    #   render_crumbs :last_item_is_link => true  #=> <a href="/">Home</a> &raquo; Businesses
     #   
     # The only argument is for the seperator text. It does not assume you want spaces on either side so you must specify. Defaults to +&raquo;+
     #
@@ -91,6 +92,8 @@ module Crummy
         options[:seperator] = "crumb" if options[:format] == :xml 
       end
       options[:links] = true if options[:links] == nil
+      options[:last_item_is_link] = true if options[:last_item_is_link] == nil
+      crumbs.last[1] = nil if options[:last_item_is_link] == false
       case options[:format]
       when :html
         crumbs.collect do |crumb|
