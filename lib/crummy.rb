@@ -73,13 +73,13 @@ module Crummy
     # The seperator text. It does not assume you want spaces on either side so you must specify. Default +&raquo;+ for :html and +crumb+ for xml
     #   :seperator => string  
     # Render links in the output. Default +true+
-    #   :link => boolean        
+    #   :links => boolean        
     # 
     #   Examples:
     #   render_crumbs                             #=> <a href="/">Home</a> &raquo; <a href="/businesses">Businesses</a>
     #   render_crumbs :seperator => ' | '         #=> <a href="/">Home</a> | <a href="/businesses">Businesses</a>
     #   render_crumbs :format => :xml             #=> <crumb href="/">Home</crumb><crumb href="/businesses">Businesses</crumb>
-    #   render_crumbs :last_item_is_link => true  #=> <a href="/">Home</a> &raquo; Businesses
+    #   render_crumbs :last_item_is_link => false  #=> <a href="/">Home</a> &raquo; Businesses
     #   
     # The only argument is for the seperator text. It does not assume you want spaces on either side so you must specify. Defaults to +&raquo;+
     #
